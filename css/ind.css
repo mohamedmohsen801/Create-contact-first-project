@@ -1,0 +1,56 @@
+
+
+
+
+body{
+
+    
+
+   
+    background-color: #999;
+   width: 80%;
+   margin-top: 40px;
+    margin-left: 100px;
+    padding-top: 0px;
+   
+
+}
+
+
+body h1 {
+    font-size: 70px !important;
+}
+
+
+
+
+.moh{
+    align-items: center;
+    justify-content: space-around;
+    padding: 0px;
+ 
+
+}
+.form-control{
+    margin: 10px;
+
+}
+ /* Edit distance between title of every form and  the form */
+
+
+ .form-label{
+    font-weight: 500px;
+    font-size: 20px;
+    position: relative;
+    left: 10px;
+    margin-bottom: 0.5px !important;
+ }
+ 
+
+ .login{
+   display: flex;
+   flex-direction:row !important;
+  
+ 
+ }
+
