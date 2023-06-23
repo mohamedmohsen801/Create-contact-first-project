@@ -7,12 +7,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Username = $_POST['Username'];
     $Email = $_POST['Email'];
     $password = $_POST['Password'];
+    $conPassword = $_POST['conPassword'];
     $Address = $_POST['Address'];
 
     $City = $_POST['City'];
     $State = $_POST['State'];
     $Zip = $_POST['Zip'];
     $passError = '';
+
+    $conerror = '';
 
 
 
@@ -27,9 +30,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             if (strlen($password) <= 6) {
                 $passError = 'password must be greater than <strong>6</strong>';
+            }
+            if ($conPassword != $password) {
+
+                $conerror = '<strong>wrong password</strong>';
+                # code...
             } else {
-                $mydata = "insert into `r`(username,Email,Password,Address,city,state,zip)
-                values('$Username','$Email','$password','$Address','$City','$State','$Zip')";
+                $mydata = "insert into `r`(username,Email,Password,conPassword,Address,city,state,zip)
+                values('$Username','$Email','$password','conPassword','$Address','$City','$State','$Zip')";
                 $result = mysqli_query($connect, $mydata);
 
 
@@ -100,6 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="col-md-6">
             <label for="inputEmail4" class="form-label"><strong>Email</strong></label>
             <input type="email" name="Email" class="form-control" id="inputEmail4">
+
         </div>
         <div class="col-md-6">
 
@@ -108,6 +117,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" name="Password" class="form-control" id="inputPassword4">
             <?php if (isset($passError)) {
                 echo $passError;
+            } ?>
+        </div>
+        <div class="col-md-6">
+
+
+            <label for="inputPassword4" class="form-label"><strong>confirm Password</strong></label>
+            <input type="text" name="conPassword" class="form-control" id="inputPassword4">
+            <?php if (isset($conerror)) {
+                echo $conerror;
             } ?>
         </div>
         <div class="col-12">
